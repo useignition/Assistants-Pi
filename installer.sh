@@ -318,7 +318,7 @@ case $assistants in
     OS=rpi
     User=$(id -un)
     Group=$(id -gn)
-    Origin=/home/pi/alexa-avs-sample-app
+    Origin=~/alexa-avs-sample-app
     Samples_Loc=$Origin/samples
     Java_Client_Loc=$Samples_Loc/javaclient
     Wake_Word_Agent_Loc=$Samples_Loc/wakeWordAgent
@@ -523,7 +523,7 @@ case $assistants in
     chown -R $User:$Group /home/$User/.asoundrc
 
     cd $Origin
-    cd /home/pi/
+    cd ~/
     sudo apt-get install npm -y
     echo ""
     echo '============================='
@@ -550,24 +550,24 @@ case $assistants in
     exit
     ;;
   Google-Assistant)
-  echo "Have you downloaded the credentials file, and placed it in /home/pi/ directory?"
+  echo "Have you downloaded the credentials file, and placed it in ~/ directory?"
   parse_user_input 1 1 0
   USER_RESPONSE=$?
   if [ "$USER_RESPONSE" = "$YES_ANSWER" ]; then
     echo "=============Starting Google Assistant Installer============="
     git clone https://github.com/shivasiddharth/GassistPi
     if [[ "$(uname -m)" == "armv7l" ]] ; then
-      sudo chmod +x /home/pi/Assistants-Pi/scripts/gassist-installer-pi3.sh
-      sudo /home/pi/Assistants-Pi/scripts/gassist-installer-pi3.sh
+      sudo chmod +x ~/Assistants-Pi/scripts/gassist-installer-pi3.sh
+      sudo ~/Assistants-Pi/scripts/gassist-installer-pi3.sh
     else
-      sudo chmod +x /home/pi/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
-      sudo /home/pi/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
+      sudo chmod +x ~/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
+      sudo ~/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
     fi
     sudo apt-get install npm -y
     echo ""
     echo "Finished installing Google Assistant....."
   elif ["$USER_RESPONSE" = "$NO_ANSWER" ]; then
-    echo "Download the credentials file, , place it in /home/pi/ directory and start the installer again.."
+    echo "Download the credentials file, , place it in ~/ directory and start the installer again.."
     exit
   fi
 
@@ -817,7 +817,7 @@ case $assistants in
     OS=rpi
     User=$(id -un)
     Group=$(id -gn)
-    Origin=/home/pi/alexa-avs-sample-app
+    Origin=~/alexa-avs-sample-app
     Samples_Loc=$Origin/samples
     Java_Client_Loc=$Samples_Loc/javaclient
     Wake_Word_Agent_Loc=$Samples_Loc/wakeWordAgent
@@ -1023,7 +1023,7 @@ case $assistants in
     chown -R $User:$Group /home/$User/.asoundrc
 
     cd $Origin
-    cd /home/pi/
+    cd ~/
     sudo apt-get install npm -y
     echo ""
     echo '============================='
@@ -1036,24 +1036,24 @@ case $assistants in
     if [ "$Wake_Word_Detection_Enabled" = "true" ]; then
       Number_Terminals=3
     fi
-    echo "Have you downloaded the credentials file, and placed it in /home/pi/ directory?"
+    echo "Have you downloaded the credentials file, and placed it in ~/ directory?"
     parse_user_input 1 1 0
     USER_RESPONSE=$?
     if [ "$USER_RESPONSE" = "$YES_ANSWER" ]; then
       echo "=============Starting Google Assistant Installer============="
       git clone https://github.com/shivasiddharth/GassistPi
       if [[ "$(uname -m)" == "armv7l" ]] ; then
-        sudo chmod +x /home/pi/Assistants-Pi/scripts/gassist-installer-pi3.sh
-        sudo /home/pi/Assistants-Pi/scripts/gassist-installer-pi3.sh
+        sudo chmod +x ~/Assistants-Pi/scripts/gassist-installer-pi3.sh
+        sudo ~/Assistants-Pi/scripts/gassist-installer-pi3.sh
       else
-        sudo chmod +x /home/pi/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
-        sudo /home/pi/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
+        sudo chmod +x ~/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
+        sudo ~/Assistants-Pi/scripts/gassist-installer-pi-zero.sh
       fi
       sudo apt-get install npm -y
       echo ""
       echo "Finished installing Google Assistant....."
     elif ["$USER_RESPONSE" = "$NO_ANSWER" ]; then
-      echo "Download the credentials file, , place it in /home/pi/ directory and start the installer again.."
+      echo "Download the credentials file, , place it in ~/ directory and start the installer again.."
       exit
     fi
 
